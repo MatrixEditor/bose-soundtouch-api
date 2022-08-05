@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io:/static/v1?label=Status&message=DRAFT&color=orange)
 ![Platform](https://img.shields.io:/static/v1?label=Platforms&message=Linux|Windows&color=yellowgreen)
 
-This small project/repository contains general information about how to analyze the firmware images provided by _`BOSE`_ and also implements commands to interact with these devices. The API and some basic usage examples are provided in the [api-documentation](https://matrixeditor.github.io/bose-soundtouch-api/).
+This small project/repository contains general information about how to analyze the firmware images provided by _`BOSE`_ and also implements commands to interact with these devices. The API and some basic usage examples are provided in the [api-documentation](https://bose-soundtouch-api.readthedocs.io).
 
 ## Overview
 ---
