@@ -1,0 +1,533 @@
+->help
+   ? : ?  [List available commands( same as help )]
+   abl
+      baud : abl baud <baudrate>  [Sets baudrate]
+      key : abl key <key code>  [Send the corresponding key]
+      mute : abl mute [int|user]  [Sets the internal or user mute]
+      off : abl off [ timeout ms]  [Turns off the boselink power supply]
+      query : abl query <cmd>  [Sends a query speaker info command]
+      rdsend : abl rdsend [status|ttag|state]
+  [Sends the remote display data to the VFD]
+      rdsendimage : abl rdsendimage <servicetype> <timeout> <imagefile>  [Sets the remote display information for triode and sends it]
+      rdset : abl rdset <field> < param1> <param2>  [Defines and sets remote display data]
+      sim
+         update-not-required : abl sim update-not-required  [get out of software version mismatch critical error state]
+         update-required : abl sim update-required  [simulate software version mismatch critical error state]
+      speaker : abl speaker [on|off]  [Tells the speaker to turn on|off]
+      stage : abl stage <stageID>  [Sends a repo stage message]
+      start : abl start  [Restarts ABL]
+      status : abl status [''|a|c|d|s]
+  [Displays the abl server status information]
+      stop : abl stop  [Stops ABL]
+      unmute : abl unmute [int|user]  [Sets the internal/ user unmute]
+      update : abl update [ start|stop ] <path to update file>  [Repository Server- Upgrade disc available]
+      vol : abl vol <volume in 0-100>  [Sets the volume of the speaker package]
+   airplay
+      activate : airplay activate  [Activate the airplay source as if it had been triggered remotely from iTunes. This forces the switching of the audio path to airplay.]
+      advance
+         config
+            profile : airplay advance config profile <IP Addres> <Mask> <Gateway> <Proxy> <Proxy Port> <DNS1> <DNS2>  [Set static network settings for the current profile]
+      allow : airplay allow  [Allow Airplay source switch]
+      async : airplay async <on/off>  [Enable/Disable asynchronous responses from the airplay stack]
+      bco
+         status : airplay bco status  [show airplay bco status register]
+      boot
+         into
+            bsl : airplay boot into bsl  [Boot BCO into the BSL]
+      clear
+         profile : airplay clear profile  [Clears the current wifi profile and resets BCO.]
+         wifi
+            profiles : airplay clear wifi profiles  [Clear all the wifi profiles on BCO and the SCM.]
+      cne
+         pr : airplay cne pr  [Preserve the CNE settings to flash - used pre-update]
+         read : airplay execute cne read <path>  [This command returns a CNE setting's value. The response will come back asyncronously. The path can be any CNE setting minus the /cne part such as: Networking/DrvCfg/WlanCfg/Profile1/SSID]
+         rs : airplay cne rs  [Restore the CNE settings from flash - used post update]
+            mfg : airplay cne rs mfg  [Restore BCO settings from mfgdata - this normally happens on every bootto make sure the settings are correct.]
+         write : airplay execute cne write <path> <value>  [Write the specified value to the path specified.The path can be any CNE setting minus the /cne part such as: Networking/DrvCfg/WlanCfg/Profile1/SSID]
+      device
+         name : airplay device name  [show airplay device name]
+            set : airplay set device name <name>  [Set the airplay device name]
+      dhcp
+         off : airplay dhcp off  [Turn off dhcp]
+         on : airplay dhcp on  [Turn on dhcp]
+      disable
+         profile
+            manager : airplay disable profile manager  [Disable the WIFI Profile Manager (for debugging only).]
+      enable : airplay enable  [Enable the speaker to play airplay]
+         profile
+            manager : airplay enable profile manager  [Enable the WIFI Profile Manager (for debugging only).]
+      factorydefault : airplay factorydefault  [Factory default for BCO only]
+      get
+         active
+            profile : airplay get active profile  [Returns the active profile number. The response will come back asyncronously.]
+         audio
+            delay : airplay get audio delay  [Get the airplay latency setting. The response will come back asyncronously.]
+         bco
+            dhcp : airplay get bco dhcp  [Get the current DHCP setting. The response will come back asyncronously.]
+            ip
+               address : airplay get bco ip address  [Get BCO's IP address. The response will come back asyncronously.]
+            versions : airplay get bco versions  [Get the BCO versions. The response will come back asyncronously.]
+         connection
+            state : airplay get connection state  [Get the current network status state. The response will come back asyncronously.]
+            type : airplay get connection type  [Get the current network connection type. The response will come back asyncronously.]
+         host
+            ip
+               address : airplay get host ip address  [Returns the IP address set if set statically (which isn't supportedon shelby). The response will come back asyncronously.]
+            mac : airplay get host mac  [Get the host mac address. The response will come back asyncronously.]
+         ip
+            profile : airplay get ip profile  [Prints out the static network settings for the current profile. The response will come back asyncronously.]
+            status : airplay get ip status  [Get the current IP address status. The response will come back asyncronously.]
+         profile
+            count : airplay get profile count  [Get the profile count. The response will come back asyncronously.]
+         rssi
+            level : airplay get rssi level  [Get the RSSI level.]
+         ssid : airplay get SSID  [Get the current SSID. The response will come back asyncronously.]
+         wpa
+            cipher : airplay get wpa cipher  [Get the current Cipher setting. The response will come back asyncronously.]
+      graceful
+         shutdown : airplay graceful shutdown  [Exectute an airplay graceful shutdown to prevent AirPlay from being activated.]
+      mac : airplay mac  [Show airplay mac address. This is a good cmd to make sure SPI is working]
+      mute : airplay mute  [Mute airplay.]
+      network
+         status : airplay network status  [show airplay network status]
+      next : airplay next  [Send next command]
+      pause : airplay pause  [Send pause command]
+      per
+         pr : airplay per pr  [Preserve the persistence settings to flash - used pre-update]
+         rs : airplay per rs  [Restore the persistence settings from flash - used post update]
+      play : airplay play  [Send play command]
+      prev : airplay prev  [Send previous command]
+      prevent : airplay prevent  [Prevent Airplay source switch]
+      print
+         wifi
+            profiles : airplay print wifi profiles  [Prints all the data for all the wifi profiles out to syslog INFO level.]
+      psm
+         enter : airplay psm enter  [Put BCO in power save mode]
+         exit : airplay psm exit  [Take BCO out of power save mode]
+      radio
+         off : airplay radio off  [Turn the wifi radio on. This is the equivalent to holding 3 & Vol -when the radio is on]
+         on : airplay radio on  [Turn the wifi radio on. This is the equivalent to holding 3 & Vol - when the radio is off]
+      rate
+         adaptation : airplay rate adaptation <enable/disable>  [Enable/Disable rate adaptation]
+      read
+         persistent
+            setting : airplay read persistent setting <setting>  [Read persistent settings from the BCO persistence partition. The response will come back asyncronously.]
+      reset : airplay reset  [Reset bco module]
+         cne
+            settings : airplay reset cne settings  [Tell BCO to reset thier cne settings to the factory defaults via the SPI message]
+         setupap : airplay reset setupap  [Force exit of SetupAP if we are in SetupAP by resetting the SetupAP CNE settings.]
+      restart
+         bco
+            mdns : airplay restart bco service <service number>  [Restart the bco mdns service.]
+      restore
+         factory
+            defaults : airplay restore factory defaults  [Restores the BCO system to factory defaults]
+      set
+         audio
+            delay : airplay set audio delay <delay>  [Set the airplay latency setting]
+         host
+            ip
+               address : airplay set host ip address <address>  [Set a static IP address (Note you still have to turn off DHCP)]
+            mac : airplay set host mac <address>  [Set the host mac address.]
+         shell
+            uart1 : airplay set shell uart1  [If you have the BCO Telnet build installed this will set the shell back to UART1 so it can be used from switch-tap-to-airplay.sh.]
+         spotify
+            name : airplay set spotify name <device name>  [Sets the Spotify device name.]
+         utf8
+            cne
+               name : airplay set utf8 cne name <device Name>  [Set the device name to a UTF8 test name if no args or the name specified.]
+         volume : airplay set volume <volume>  [Send the volume to BCO to test if iTunes gets it.]
+      setupap
+         enter : airplay enter setupap  [Enter SetupAP via SPI cmd]
+         exit : airplay setupap exit  [Exit SetupAP via SPI cmd]
+      site
+         survey : airplay site survey  [Execute a site survey on BCO. The response will come back asyncronously.]
+      spi
+         req : airplay spi req  [show airplay bco spi request line values]
+      start
+         bco
+            mdns : airplay start bco service <service number>  [Start the bco mdns service.]
+      state : airplay state  [Report the states of the airplay state machines that support this]
+      status : airplay status  [show airplay status]
+      stop
+         bco
+            mdns : airplay stop bco service <service number>  [Stop the bco mdns service.]
+      unmute : airplay unmute  [Un-mute airplay.]
+      wep
+         profile : airplay wep profile <SSID> <Key>  [Write the specificed WEP profile to the current profile (ensure system not in setupap first using "sys setupap disable"]
+      wifi
+         profile : airplay wifi profile <SSID>  [Write the specificed no security profile to the current profile (ensure system not in setupap first using "sys setupap disable"]
+      wmm
+         off : airplay wmm off  [Turns off the CNE setting cneGroup/WMM and resets BCO after 5 seconds.]
+         on : airplay wmm on  [Turns on the CNE setting cneGroup/WMM and resets BCO after 5 seconds.]
+      wpa
+         profile : airplay wpa profile <SSID> <Cipher> <Passphrase>  [Write the specificed WPA profile to the current profile (ensure system not in setupap first using "sys setupap disable"]
+      write
+         persistent
+            setting : airplay write persistent setting <setting> <value>  [Write persistent settings to the BCO persistence partition. Make sure youknow what you are writing here, bad settings can make the system unbootable.]
+   amp_eeprom : amp_eeprom [l | r | s | t | c]
+       no arg. checks if eeprom present
+   l : left amp gain
+   r : right amp gain
+   s : board serial #
+   t : AMP TEST status value
+   c : clear EEPROM contents
+   NOTE THAT device CANNOT be written by software! It musy be in a
+   test fixture, s.t. WC_L can be pulled low via test point TPF416  [Taigan amp-board EEPROM access commands]
+   async_responses : async_responses [on | off]  [send asynchronous responses to this session]
+   audiopath
+      dbglevel : audiopath dbglevel <critical | error | warning | info | debug | verbose | insane>  [Set APServer log level]
+      geturl : audiopath geturl  [Obtain current audiopath url]
+      playstate : audiopath playstate  [Obtain current audiopath playstate]
+   ba : ba [0..9 | a | p | c [e|d|i|r] | n | s | = dd]
+   0 : voltage
+   1 : temp.
+   2 : current
+   3 : status
+   4 : DC present
+   p : DC present
+   5 : build date
+   6 : serial #
+   7 : s/w version
+   8 : RSOC
+   9 : Fault code
+   c [e|d|i|r]: Charger - status('ba c')|enable|disable|invert|restore default
+   a : ATMEL temp. (0x15)
+   n : Manufacturer name
+   s : place battery in SHIP mode; it always forces it, even if DC is plugged in
+   = dd : arb. 16-bit register (dec.)  [Battery chip access commands]
+      sim
+         extremetemp : ba sim extremetemp {on|off}  [simulate Temp.Out-Of-Range (fault) state]
+         precharge : ba sim precharge {on|off}  [simulate pre-charge (fault) state]
+         shiptime : ba sim shiptime DD  [How long before deep sleep puts battery in SHIP mode (in minutes;def.=8 days)]
+         sleeptime : ba sim sleeptime DD  [Change period of deep sleep (in minutes;def.=30)]
+   bdsp : bdsp [<bdspid> <subcommand>]  [Access BDSP xmodel properties]
+   bn : bn <cmd> [args]
+   echo [on|off] : echo keys to TAP as received; MUST run 'async_responses on' TAP cmd 
+          in order to see the output
+   ignore [key] [on|off] : ignore a key (don't send events to the app).  [Console Button commands]
+   btle : btle rem <dest> <cmd> [args]: dest can be scmbt, lsbt, or ls
+   reset : reset the radio
+   erase : erase application
+   lpb  <dest> <numPackets> <pktSize>: dest can be scmbt, lsbt, or ls
+   trace on | async | off : change log level; display BTle packets sent in a tap session
+   stats : Dump local radio statistics  [Bluetooth LE commands]
+   deezer
+      dev : deezer dev  [Set the Deezer Client URLs to point to the Deezer development servers]
+      dump
+         playqueue : deezer dump playqueue <user>  [display the contents of the accounts playqueue]
+      geturl : deezer getURL  [get the value of Deezer URL]
+      inject
+         inerror : deezer inject inerror <user> <module> <code> [<count>]  [inject inbound service error code]
+         outerror : deezer inject outerror <user> <module> [<count>]  [inject outbound access error]
+         reqdelay : deezer inject reqdelay <user> <module> <seconds>  [delay sending http request]
+         respdelay : deezer inject respdelay <user> <module> <seconds>  [delay http response]
+      loglevel : deezer loglevel [<0-7>] or loglevel [critical | error | warning | info | debug | test | verbose | insane]  [set logging level]
+      prod : deezer prod  [Set the Deezer Client URLs to point to the Deezer production servers]
+      reseturl : deezer resetURL  [reset the value of Deezer URL to the default]
+      seturl : deezer setURL <url>  [set the value of Deezer URL]
+   demo
+      abl : demo abl [on|off|info]  [Turn a BoseLink speaker package on or off, or get info about the speaker package]
+      ae : demo ae  [Set echo state for inputs such as keys]
+      create
+         source : demo create source <source name> [iconUrl]  [Adds a source and optionally an icon URL (default URL used if not specified)]
+      echo : demo echo  [Provide an echo response based on input]
+      enter : demo enter  [Enter Demo Mode]
+      exit : demo exit  [Exit Demo Mode]
+      ig : demo ig (<button> | <device> | <all>) <0,1>  [Set ignore state for inputs such as keys]
+      kp : demo kp  [Simulate an input event such as key press]
+      ps
+         config : demo ps config <preset #> <source> <preset_name> <track_name> <album_name> <artist_name> <station>  [Set data for a preset]
+      standby : demo standby  [Enter simulated demo standby]
+   display : display  [display demo]
+      set
+         countdown : display set countdown <msg> [upperCount]  (default upperCount=5)  [Set a countdown msg for OLED display]
+   dm870 : dm870 get <register> | dm870 set <register> <value>  [DM870 commands]
+   envswitch
+      accountid
+         get : envswitch AccountId get  [Retrieve AccountId from SystemConfiguration File]
+         set : envswitch AccountId set <UUID>  [Put AccountId for new Environment into SystemConfiguration File]
+      boseurls
+         set : envswitch boseurls set <BoseServerURL> <SoftwareUpdateURL>   [Put new Bose Server Urls into /mnt/nv/OverrideConfigurationEFE.xml]
+      newenviron
+         activate : envswitch newenviron activate <EnvName> <UserAccountName> <AccountPassword>   [Activate named environment on current server using named account ]
+         define : envswitch newenviron define <EnvName> <BoseServerURL> <SoftwareUpdateURL>   [Define a new named environment with Bose Server Urls ]
+         select : envswitch newenviron select <EnvName> <ServerUrl> <UserAccountName> <AccountPassword>   [Switch named environment on named account ]
+      swupdateurl
+         set : envswitch swupdateurl set <URL>  [Put new SwUpdateUrl into /mnt/nv/OverrideConfigurationEFE.xml]
+      testenvironments
+         get : envswitch testenvironments get   [Get Test Environments List from Marge]
+   ext
+      capabilities : ext capabilities search|sort  [Check search/sort capabilities]
+      conthist : ext conthist  [list of contents]
+      info : ext info  [Check Track Info]
+      list : ext list [contentid] [start_offset] [count]  [List container of a Upnp Server]
+      loglevel : ext loglevel [<level>]  [Set level]
+      next : ext next  [Next track]
+      pause : ext pause  [Pause]
+      play : ext play [contentid] [track|folder]  [Play a track]
+      prev : ext prev  [Previous track]
+      repeat : ext repeat [on|one|off]  [Set repeat mode]
+      search : ext search [contentid] [start_offset] [count] [search_type] [key_word]  [Search a Upnp Server]
+      select : ext select idx  [select a stored music source]
+      server : ext server | ext server server_uuid  [check or set current server]
+      servers : ext servers  [List Upnp Servers]
+      shuffle : ext shuffle [on|off]  [Set shuffle mode]
+      sources : ext sources  [check stored music sources]
+      status : ext status  [Check Play Status]
+      stop : ext stop  [Stop]
+      tracks : ext tracks  [list of play_all tracks]
+   force_battery : force_battery  [force a battery device to be created, regardless of variant]
+   getpdo : getpdo <pdo_name>  [Get PDO data]
+   getpdosize : getpdo [<pdo_name>]  [Get PDO data size in bytes]
+   gpio : gpio <number> to read, gpio <number> [on | off] to set  [Read input GPIO value or set GPIO output value]
+   help : help  [List available commands( same as ? )]
+   iheart
+      corruptsessionid : iheart corruptsessionid <user>  [Corrupt SessionID to test re-login]
+      inject
+         inerror : iheart inject inerror <user> <module> <code> [<count>]  [inject inbound service error code]
+         outerror : iheart inject outerror <user> <module> [<count>]  [inject outbound access error]
+         reqdelay : iheart inject reqdelay <user> <module> <seconds>  [delay sending http request]
+         respdelay : iheart inject respdelay <user> <module> <seconds>  [delay http response]
+      loglevel : iheart loglevel [<0-7>] or loglevel [critical | error | warning | info | debug | test | verbose | insane]  [set logging level]
+      relogin
+         bad
+            json : iheart relogin bad json <user>  [Make relogin have a JSON parsing error]
+         test : iheart relogin test <user>  [Corrupt SessionID to test re-login]
+      stagingserver : iheart stagingserver [on | off]  [enable/disable use of the IHeart staging server (setting is persistent across reboots)]
+      testautomationlogging : iheart testautomationlogging [on | off]  [Turn on test automation logging]
+   ir : ir <cmd> [args]
+   echo [on|off] : echo keys to TAP as received; MUST run 'async_responses on' TAP cmd 
+          in order to see the output  [IR Device commands]
+   key : key [key_value (volume_up, volume_down, preset_1, ..., preset_6  [Simulate a key press and release]
+   led
+      apsetup : led apsetup  [Set LED for AP Setup mode]
+      ethernet : led ethernet connected  [Set LED for ethernet connection]
+      intensity : led intensity 0-100 [amber,white]  [Light LED at given intensity]
+      update
+         downloading : led update downloading  [Set LED for update downloading]
+         installing : led update installing  [Set LED for update installing]
+      wifi
+         connected : led wifi connected  [Set LED for wifi connected while system on]
+         connecting : led wifi connecting  [Set LED for wifi connecting while system on]
+         disconnected : led wifi disconnected  [Set LED for wifi disconnected while system on]
+   lightswitch
+      dataitems : lightswitch dataitems  [CLI command to Display LS data items]
+      faststatus : lightswitch faststatus  [lightswitch message to get faststatus request from Lisa eg. <lightswitch faststatus >]
+      getfile : lightswitch getfile <id>  [lightswitch message to get the file for an id]
+      getfileid : lightswitch getfielid <Text>  [CLI command to get file id for a text ]
+      getinfo : lightswitch getinfo  [Command to get LS ser no ,software version,  peer address,]
+      getstatus : lightswitch getstatus  [lightswitch message to get the status request from Lisa eg. <lightswitch getstatus atmelSoftwareVersion cc2540softVersion serialno>]
+      getstoredversions : lightswitch getstoredversions  [Command to get stored software versions of Atmel and CC2540]
+      infile : lightswitch infile <FileName>  [Command to test file download ]
+      nexttrack : lightswitch nexttrack command  [lightswitch message to play next track]
+      playpause : lightswitch playpause command  [lightswitch message to play/pause the station]
+      prevtrack : lightswitch prevtrack command  [lightswitch message to play prev track]
+      resetfiledownload : lightswitch resetfiledownload true  [CLI command to set downloadbyLS1 field as true/false.If you provide an arg(true) it will set the file downloaded as true otherwise false]
+      scmgostandby : lightswitch scmgostandby  [lightswitch CLI message to go scm in network standby]
+      selpreset : lightswitch select preset command  [lightswitch message to select prreset]
+      setinfo : lightswitch setinfo srno peerAddress softVersion  [Command to set LS ser no ,software version,  peer address,]
+      setpreset : lightswitch set preset command  [lightswitch message to set prreset]
+      storegbuffer : lightswitch dumpgraphics true/false true/false  [lightswitch CLI command to store graphics icon buffer into a file, pass second arg as true for COMPRESSED or false for UNCOMPRESSED]
+      tapcmd : lightswitch tapcmd <tap command>  [lightswitch tap command for local Radio]
+      updatecheck : lightswitch updatecheck true/false  [CLI command to check LS update, It need one arg if pass as false, scm will not check LS update. Default scm will check LS update]
+      volumechange : lightswitch volumechange  [lightswitch volume change message to increment and decrement the volume by some delta value]
+   local_services : local_services on  [turn on local services (persistent)]
+   loglevel : loglevel [<level>] or loglevel [<facility> <on|off>]  [Set level, set facility on/off (current status if no args)]
+   logread : logread [on | off]  [turn on logread (persistent)]
+      flush : logread flush <usb/fs>  [Flushes the contents of logread to USB or File System (/mnt/nv/BoseLog/)]
+   net
+      analysis : net analysis  [Perform a network analysis]
+   pandora
+      autocomplete : Pandora autocomplete [<off|on>]  [Disable/enable autocomplete search]
+      explain : Pandora explain  [explainTrack]
+      inactivity : Pandora inactivity [<time in minutes>]  [Set the inactivity timeout (in minutes)]
+      list
+         accounts : Pandora list accounts  [List the available accounts]
+         stations : Pandora list stations [<maximum stations>]  [List the available stations]
+         tracks : Pandora list tracks  [List tracks for current station]
+      logout : Pandora logout  [Logout]
+      maint : Pandora maint [<off|on>]  [Set the maintenance mode]
+      playstation : pandora playstation <station index>  [Play a station]
+      rate_enabled : Pandora rate_enabled [<true|false>]  [Set the rate enabled/allowed for the current track]
+      rating : Pandora rating [<DOWN|NONE|UP>]  [Set the rating for the current track]
+      restrict : Pandora restrict [<off|on>]  [Set the Restriced License mode]
+      select
+         account : Pandora select [<account id>]  [Select account]
+      thumbs : Pandora thumbs up[down]  [Thumbs up/down]
+   rtc : rtc  [gettime, getalarm, enablealarm, disablealarm, getwk, read, settime, setalarm yyyy - mm - dd hh : mm : ss, setwk yyyy - mm - dd hh : mm : ss 1( 0 )]
+   scm
+      exp : scm exp  [scm experiments]
+      kill : scm kill  [kill a process]
+      list : scm list  [List processes scm manages]
+      log
+         purge : scm log purge  [purge scm log file]
+         read : scm log read  [read back scm log file]
+      per : scm per on|off  [turn peripherals on or off]
+      restart : scm restart  [restart a process if it is restartable, otherwise, kill the process]
+      restartnc : scm restartnc  [restart noncore processes]
+      sim
+         amp-fault : scm sim amp-fault  [simulate detected amp-fault condition]
+      sleep : scm sleep  [Go to sleep mode]
+      start : scm start  [start a process if it is not running, otherwise, no-op]
+      termnc : scm termnc  [terminate noncore processes]
+      wakeup : scm wakeup 0|1  (0--reboot linux; 1-- resume apps)  [set scm wakeup option (experimental)]
+   set
+      master : set master <IP address>  [Performs a set master call to APServer with master IP as the address]
+   spotify
+      app
+         next : Spotify app next  [Simulate skip next being pressed in the spotify app]
+         pause : Spotify app pause  [Simulate pause being pressed in the spotify app]
+         play : Spotify app play  [Simulate play being pressed in the spotify app]
+         prev : Spotify app prev  [Simulate skip previous being pressed in the spotify app]
+      audio
+         pause : Spotify audio pause  [Send a pause to audio path]
+         play : Spotify audio play  [Send a play to audio path]
+      bitrate : Spotify bitrate [0(low) | 1(normal) | 2(high)]  [Set the library's audio bitrate]
+      connection : Spotify connection [none | wired | wireless | mobile]  [Get or set the library's connection value]
+      debug : Spotify 
+      get
+         access
+            token : Spotify get access token <refresh_token>  [Use the specified refresh token to get an access token (asyncronous output)]
+         position : Spotify get position  [See what the library is reporting for the current track position]
+         sdk : Spotify get sdk  [Show the version of the Spotify SDK library]
+         tokens : Spotify get tokens <code>  [Using the specified code to get access and refresh tokens (asyncronous output)]
+         user
+            info : Spotify get user info <access_token>  [Get user info with the specified access token (asyncronous output)]
+      invalidate : Spotify invalidate  [Invalidate the access token for all users for testing]
+      logged
+         in : Spotify logged in  [Check to see if the the library is logged in]
+      loglevel : Spotify loglevel [<0-7>] or loglevel [critical | error | warning | info | debug | test | verbose | insane]  [set logging level]
+      logout : Spotify logout  [Log the current user out]
+      next : Spotify next  [Send next to spotify lib]
+      oauthlogin : Spotify oauthlogin <access token>  [Log the current user in using an OAuth access token]
+      pause : Spotify pause  [Send pause to spotify lib]
+      play : Spotify play  [Send play to spotify lib]
+      prev : Spotify prev  [Send previous to spotify lib]
+      reset
+         stream : Spotify reset stream  [Reset the audio buffers and tell the AP to stop and reset the url]
+      seek : Spotify seek [time in ms]     [Seek to the specified position or if none specified to the last known position]
+      selecteduser : Spotify selecteduser  [Get the selected spotify user account]
+      user : Spotify user  [Show the last logged in user]
+      users : Spotify users  [Print the spotify user accounts]
+      zeroconf
+         vars : Spotify zeroconf vars  [Get the current zeroconf vars from the library]
+   swupdate
+      abort : swupdate abort  [Abort the software update operation]
+      query : swupdate query  [Request the software update server status. Use 'swupdate view' to see the results]
+      start : swupdate start  [Start the software update operation]
+      view : swupdate view  [Display the current software update status]
+   syncout : syncout [<AM-freq> 0|1|2]
+       no arg. dumps present value
+       0 == North America
+       1 == Europe
+       2 == Asia
+   off - disable SYNC_OUT signal  [Sync_out signal control]
+   sys
+      auxkey : sys auxkey  [Set the aux button]
+      broadcast : sys broadcast  [test broadcast to external clients]
+         mode : sys broadcast mode  [test mode broadcast to external clients]
+         presets : sys broadcast presets  [send presets to external clients (both UI and Peers)]
+         recents : sys broadcast recents (deprecated)  [test recents broadcast to external clients]
+      configuration : sys configuration <XMLTag> <Value>  [Dynamically modify the current loaded configuration]
+      factorydefault : sys factorydefault  [Reset to Factory Default(It will remove device from Marge, clear the persistence, reset the SMSC cne settings and reboot the system)]
+      iconurl : sys iconurl <SoundTouch Source Type name> <url>  [Set source icon url for an STS source]
+      list
+         sources : sys list sources  [List the current sources]
+            pers : sys list sources  [Lists source information from datastore/persistence]
+      listdiscdev : sys listdiscdev  [List the devices that have been discovered by UPnP]
+      login : sys login pandora [<username> <password>]  [login a source (provide username/password)]
+      net
+         down : sys net down  [Simulate network down]
+         up : sys net up  [Simulate network up]
+      next : sys next  [select the next track]
+      notify : sys notify  [test notification to other Lisa devices]
+      pause : sys pause  [pause the current station]
+      play : sys play  [play the current station]
+      playpause : sys playpause  [play/pause the current station]
+      power : sys power  [issue the power key]
+      presetkey : sys presetkey [<number> p|ph] (p=press&release, ph=press&hold)  [Set a preset button]
+      prev : sys prev  [select the prev track]
+      reboot : sys reboot  [Reboot the system]
+      remove : sys remove type name  [Remove a source]
+      select : sys select type name  [Change to new source]
+      selectslave : sys selectslave  [Send a mesage to SysController to select the slave source]
+      set
+         language : sys set language [1-n]  [Sets the system language. Displays languages if no parameters specified]
+      setup : sys setup  [transition to setup state]
+      setupap : sys setupap <enable/disable>  [Set whether setupap mode (auto/off)]
+      standby : sys standby [  |lowpower|charging]  [transition to standby, low power standby or to charging standby]
+      stop : sys stop  [stop the current station]
+      syncmarge : sys syncMarge  [Sync with Marge]
+      timeout : sys timeout inactivity seconds|enable|disable or sys timeout onbattery seconds  [Override the default timeout for testing purpose]
+      ver : sys ver  [output BoseApp build version]
+      volume : sys volume [setvalue updateDisplay]  [set or get the system volume, enable/disable display update]
+         down : sys volume down [delta]  [decrease the system volume]
+         max : sys volume max [threshold]  [set the system volume max threshold]
+         min : sys volume min [threshold]  [set the system volume min threshold]
+         mute : sys volume mute (toggle|on|off)  [mute the system volume]
+         up : sys volume up [delta]  [increase the system volume]
+      zone : sys zone [off|on]  [Set/Get zone state]
+   test
+      senderrornotify : test sendErrorNotify  [Sends a test error notification message]
+   vm
+      btest : vm btest [picture]  [Test VM bottom pict]
+      btesttext : vm btesttext [text to display]  [Test VM bottom text]
+      ftest : vm ftest [picture]  [Test VM full pict]
+      lspict : vm lspict [width] [height] [picture_ID]  [Test Light Switch Pict]
+      lstext : vm lstext [max font] [min font] [width] [height] [text]  [Test Light Switch Text]
+      set
+         battery : vm set battery [0-100]  [Set the VM pdo battery level percentage]
+      test
+         string : vm test string <stringId>  [Test a Multi-language string on the display]
+      ttag
+         cycletime : vm ttag cycletime <time_in_milliseconds>  [Set the cycle time for displaying ttag data]
+      ttest : vm ttest [picture]  [Test VM top pict]
+   vtuner
+      geturls : vtuner geturls  [display current vtuner urls]
+      home : vtuner home  [List the home menu items.  If <printlines> is not given, then the response from vtuner server won't be printed]
+      inject
+         badtoken : vtuner inject badtoken [<number of command transactions to corrupt>]  [vtuner corrupt command request with un-encrypted token]
+         ipaddr : vtuner inject ipaddr [<ip address to inject>] [<number of login transactions with new ip address>]  [vtuner augment login command with alternative ip address]
+         logapi : vtuner inject logapi [<number of vTuner responses to send to log>]  [vtuner send dump of vTunerAPI responses to TEST_AUTO port]
+         naverr : vtuner inject naverr [<number of nav errors>]  [set vtuner navigation error count]
+         playurl : vtuner setplayurl [<play url>] [<number of set requests to modify, -1 = forever>]  [vtuner override play url returned from vtuner]
+         protohint : vtuner setprotohint [<ptoto hint>] [<number of set requests to modify, -1 = forever>]  [vtuner override proto hint returned from vtuner]
+         srchlang : vtuner inject srchlang [<ISO language code>] [<number of search requests to modify>]  [vtuner augment search request to use spelling specified by language code]
+      list
+         dir : vtuner list dir [<printlines>]  [list current vtuner directory.  If <printlines> is given, then only specified # of lines will be printed]
+         station : vtuner list station  [list current vtuner station info]
+      localebackupurl : vtuner localebackupurl [<url>]  [set or get (no argument gets) vtuner locale backup url]
+      localeurl : vtuner localeurl [<url>]  [set or get (no argument gets) vtuner locale primary url]
+      location : vtuner location  [set or get (no argument gets) vtuner location to use for the solr search]
+      loginbackupurl : vtuner loginbackupurl [<url>]  [set or get (no argument gets) vtuner login backup url]
+      loginurl : vtuner loginurl [<url>]  [set or get (no argument gets) vtuner login primary url]
+      logout : vtuner logout  [logout of vtuner server]
+      open : vtuner open <index_num>/previous [<printlines>/all]  [Open an entry of current directory, or open 'home', or open 'previous'.  If <printlines> is not given, then the response from vtuner server won't be printed]
+      predictivesearchurl : vtuner prectivesearchurl [<url>]  [set or get (no argument gets) vtuner predictive search primary url]
+      previous : vtuner previous  [List the previous menu items.]
+      search : vtuner search  [search vtuner stations]
+      searchbackupurl : vtuner searchbackupurl [<url>]  [set or get (no argument gets) vtuner search backup url]
+      searchurl : vtuner searchurl [<url>]  [set or get (no argument gets) vtuner search primary url]
+      solrsearchurl : vtuner solrsearchurl [<url>]  [set or get (no argument gets) vtuner solr search url]
+      status : vtuner status  [show vtuner current station playback status]
+      usesolrsearch : vtuner usesolrsearch  [set or get (no argument gets) vtuner flag to force use of the solr search]
+   webserver
+      clients  [Lists all connected clients via websockets]
+      details  [Lists all connected clients via websockets and all stats associated]
+      devicelist  [List all discovered devices]
+      reqhist  [Lists all last 100 requests]
+      resphist  [Lists all last 100 responses]
+      stats  [List all information regarding transactions going through webserver]
+   ws
+      acctmode
+         get : ws AcctMode get  [get AcctMode]
+         set : ws AcctMode set <MODE>  [set a new AcctMode]
+      addpreset : ws AddPreset <SOURCE> <LOCATION> <LABEL> <SOURCEACCOUNT> <PRESETID>  [NB: label may be quoted with " characters]
+      getdeviceinfo : ws GetDeviceInfo
+      getpresets : ws GetPresets  [get presets]
+      pairdevicewithmargeaccount : ws PairDeviceWithMargeAccount MARGEMAIL MARGEUUID PASSWORD
+      removepreset : ws RemovePreset <PRESETID>  [remove a preset]
+      renamedevice : ws RenameDevice NEWDEVICENAME
+      unpairdevicewithmargeaccount : ws UnPairDeviceWithMargeAccount
+
