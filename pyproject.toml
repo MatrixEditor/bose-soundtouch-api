@@ -1,0 +1,30 @@
+[project]
+name = "boseapi"
+version = "0.2.0"
+description="BOSE SoundTouch API"
+authors = [
+  { name="MatrixEditor", email="not@supported.com" },
+]
+readme = "README.md"
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Science/Research',
+    'License :: OSI Approved :: MIT License',  
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+]
+dependencies = [
+  'urllib3',
+  'websocket'
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MatrixEditor/bose-soundtouch-api"
+"API-Docs" = "https://bose-soundtouch-api.readthedocs.io"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["boseapi*"]
