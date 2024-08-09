@@ -5,7 +5,7 @@
 ![Platform](https://img.shields.io:/static/v1?label=Platforms&message=Linux|Windows&color=yellowgreen)
 ![PyPi](https://img.shields.io:/static/v1?label=PyPi&message=0.2.0&color=green)
 
-This small project/repository contains general information about how to analyze the firmware images provided by _`BOSE`_ and also implements commands to interact with these devices. The API and some basic usage examples are provided in the [api-documentation](https://bose-soundtouch-api.readthedocs.io).
+This small project implements commands to interact with these devices. The API and some basic usage examples are provided in the [api-documentation](https://bose-soundtouch-api.readthedocs.io).
 
 ## Installation
 
