@@ -2,7 +2,7 @@ from time import sleep
 import boseapi.all as boseapi
 
 # Create a websocket connection only usable together with a device:
-device = boseapi.BoseDevice('192.168.189.32')
+device = boseapi.BoseDevice('127.0.0.1')
 
 # 1. Create a websocket by using the 'with' statement:
 with boseapi.BoseWebSocket(device) as ws_client:
